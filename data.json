@@ -1,0 +1,94 @@
+[
+  {
+    "model": "mainapp.category",
+    "pk": 1,
+    "fields": {
+      "name": "Джинсы",
+      "description": "Покупайте наши джинсы"
+    }
+  },
+  {
+    "model": "mainapp.category",
+    "pk": 2,
+    "fields": {
+      "name": "Кеды",
+      "description": "покупайте наши кеды"
+    }
+  },
+  {
+    "model": "mainapp.category",
+    "pk": 3,
+    "fields": {
+      "name": "Сумки",
+      "description": "Покупайте наши сумки"
+    }
+  },
+  {
+    "model": "mainapp.category",
+    "pk": 4,
+    "fields": {
+      "name": "Куртки",
+      "description": "Очень теплые куртки"
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 1,
+    "fields": {
+      "category": 1,
+      "name": "синии джинсы",
+      "image": "product_images/item-02_SMydPmg.jpg",
+      "short_description": "",
+      "description": "очень синии джинсы",
+      "price": "5000.00",
+      "quantity": 12,
+      "created": "2025-05-06T13:21:56.562Z",
+      "updated": "2025-05-08T13:01:31.015Z"
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 2,
+    "fields": {
+      "category": 2,
+      "name": "Красные кеды",
+      "image": "product_images/item-06.jpg",
+      "short_description": "красота и удобство",
+      "description": "крутые кеды",
+      "price": "3000.00",
+      "quantity": 50,
+      "created": "2025-05-08T12:50:01.191Z",
+      "updated": "2025-05-08T12:55:07.823Z"
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 3,
+    "fields": {
+      "category": 3,
+      "name": "сумка дамская",
+      "image": "product_images/item-04_na4sPxU.jpg",
+      "short_description": "шик",
+      "description": "сумка для девочек",
+      "price": "10000.00",
+      "quantity": 20,
+      "created": "2025-05-08T12:50:49.264Z",
+      "updated": "2025-05-08T13:01:05.735Z"
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 4,
+    "fields": {
+      "category": 3,
+      "name": "розовая сумочка",
+      "image": "",
+      "short_description": "для самых самых дам",
+      "description": "розовая сумочка",
+      "price": "0.00",
+      "quantity": 0,
+      "created": "2025-05-08T12:58:55.724Z",
+      "updated": "2025-05-08T13:10:18.174Z"
+    }
+  }
+]
