@@ -1,9 +1,12 @@
+from selectors import SelectSelector
+
 from django.contrib import auth
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.template.defaultfilters import title
 from django.urls import reverse
 
-from authapp.forms import ShopUserLoginForm
+from authapp.forms import ShopUserLoginForm, ShopUserRegisterForm, ShopUserEditForm
 
 
 def login(request):
@@ -37,3 +40,44 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return HttpResponseRedirect(reverse('mainapp:index'))
+
+def register(request):
+    title = 'Регистрация'
+
+    if request.method == 'POST':
+        register_form = ShopUserRegisterForm(request.POST, request.FILES)
+
+        if register_form.is_valid():
+            register_form.save()
+            return HttpResponseRedirect(reverse('auth:login'))
+    else:
+        register_form = ShopUserRegisterForm()
+
+    context = {
+        'title': title,
+        'register_form': register_form,
+    }
+    return render(request, 'auth/register.html', context)
+
+
+def edit(request):
+    title = 'Редактирование пользователя'
+
+    if request.method == 'POST':
+        edit_fopm = ShopUserEditForm(request.POST, request.FILES, instance=request.user)
+
+        if edit_fopm.is_valid():
+            edit_fopm.save()
+            return HttpResponseRedirect(reverse('auth:edit'))
+    else:
+        edit_fopm = ShopUserEditForm(instance=request.user)
+
+    context = {
+        'title': title,
+        'edit_fopm': edit_fopm,
+    }
+
+    return render(request, 'auth/edit.html', context)
+
+
+
