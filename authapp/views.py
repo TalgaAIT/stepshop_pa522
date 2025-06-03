@@ -41,6 +41,7 @@ def logout(request):
     auth.logout(request)
     return HttpResponseRedirect(reverse('mainapp:index'))
 
+
 def register(request):
     title = 'Регистрация'
 
@@ -64,17 +65,17 @@ def edit(request):
     title = 'Редактирование пользователя'
 
     if request.method == 'POST':
-        edit_fopm = ShopUserEditForm(request.POST, request.FILES, instance=request.user)
+        edit_form = ShopUserEditForm(request.POST, request.FILES, instance=request.user)
 
-        if edit_fopm.is_valid():
-            edit_fopm.save()
+        if edit_form.is_valid():
+            edit_form.save()
             return HttpResponseRedirect(reverse('auth:edit'))
     else:
-        edit_fopm = ShopUserEditForm(instance=request.user)
+        edit_form = ShopUserEditForm(instance=request.user)
 
     context = {
         'title': title,
-        'edit_fopm': edit_fopm,
+        'edit_form': edit_form,
     }
 
     return render(request, 'auth/edit.html', context)
